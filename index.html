@@ -3,96 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>个人作品集 | 首页</title>
+    <title>小游戏站 | Game Hub</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <h1 class="logo">Zoe Portfolio</h1>
-        <nav aria-label="主导航">
-          <ul class="nav-list">
-            <li><a href="#home">首页</a></li>
-            <li><a href="#about">关于我</a></li>
-            <li><a href="#skills">技能</a></li>
-            <li><a href="#projects">项目</a></li>
-            <li><a href="#contact">联系</a></li>
-          </ul>
+        <h1 class="logo">Game Hub</h1>
+        <nav>
+          <a href="#games">游戏列表</a>
+          <a href="#play">开始游戏</a>
+          <a href="#rank">排行榜</a>
         </nav>
       </div>
     </header>
 
-    <main>
-      <section id="home" class="hero">
-        <div class="container">
-          <p class="eyebrow">前端开发者 / UI 爱好者</p>
-          <h2>你好，我是 Zoe</h2>
-          <p>我专注于构建简洁、快速、可维护的 Web 体验。</p>
-          <div class="hero-actions">
-            <button id="cta-btn" class="btn">查看项目</button>
-            <a class="btn btn-light" href="#contact">联系我</a>
-          </div>
+    <main class="container">
+      <section id="games" class="panel">
+        <h2>小游戏网站框架</h2>
+        <p>当前内置三个游戏：躲避方块 + 贪吃蛇 + 飞跃小鸟，可继续扩展更多小游戏。</p>
+        <div class="game-tags">
+          <span>Canvas 游戏</span>
+          <span>本地排行榜</span>
+          <span>可扩展关卡</span>
+        </div>
+        <div class="game-switch">
+          <button id="switch-dodge-btn" class="switch-btn active">躲避方块</button>
+          <button id="switch-snake-btn" class="switch-btn">贪吃蛇</button>
+          <button id="switch-bird-btn" class="switch-btn">飞跃小鸟</button>
         </div>
       </section>
 
-      <section id="about" class="section">
-        <div class="container">
-          <h3>关于我</h3>
-          <p>
-            3 年前端开发经验，擅长使用 HTML/CSS/JavaScript 构建响应式网页。
-            我关注用户体验、性能优化和组件化开发，能独立完成从设计还原到上线部署。
-          </p>
+      <section id="play" class="panel">
+        <div class="play-header">
+          <h3 id="game-title">躲避方块</h3>
+          <p id="game-desc">键盘方向键或 WASD 移动蓝色方块，躲避红色障碍。</p>
+        </div>
+
+        <div class="status-bar">
+          <span>分数：<b id="score">0</b></span>
+          <span>最高分：<b id="best-score">0</b></span>
+          <span>速度等级：<b id="speed-level">-</b></span>
+          <span>状态：<b id="game-state">未开始</b></span>
+        </div>
+
+        <canvas id="game-canvas" width="640" height="360"></canvas>
+
+        <div class="actions">
+          <button id="start-btn">开始</button>
+          <button id="pause-btn">暂停</button>
+          <button id="reset-btn">重置</button>
         </div>
       </section>
 
-      <section id="skills" class="section alt-bg">
-        <div class="container">
-          <h3>技能栈</h3>
-          <div class="card-grid">
-            <article class="card">
-              <h4>前端开发</h4>
-              <p>HTML5 / CSS3 / JavaScript / TypeScript</p>
-            </article>
-            <article class="card">
-              <h4>框架生态</h4>
-              <p>React / Vue / Vite / Tailwind CSS</p>
-            </article>
-            <article class="card">
-              <h4>工程化</h4>
-              <p>Git / ESLint / Prettier / CI-CD 基础</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="section">
-        <div class="container">
-          <h3>在线项目（GitHub 实时数据）</h3>
-          <p class="subtext">
-            该模块通过网络请求 GitHub API 获取项目列表。你只需要在 `main.js` 里替换用户名即可。
-          </p>
-          <div id="projects-list" class="card-grid"></div>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <div class="container">
-          <h3>联系我</h3>
-          <div class="contact-list">
-            <a href="mailto:hello@example.com">Email: hello@example.com</a>
-            <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-          </div>
-        </div>
+      <section id="rank" class="panel">
+        <h3 id="rank-title">排行榜（本地）- 躲避方块</h3>
+        <ol id="rank-list"></ol>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container">
-        <p>© <span id="year"></span> Zoe Portfolio. All rights reserved.</p>
-      </div>
+      <div class="container">© <span id="year"></span> Game Hub</div>
     </footer>
 
-    <script src="./main.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
